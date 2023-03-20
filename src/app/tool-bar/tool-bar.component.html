@@ -1,0 +1,15 @@
+  <p>
+    <mat-toolbar color = 'primary' class="toolbar">
+      <span class="Name">MOLO AIR</span>
+
+      <!-- <a mat-button>Register</a> -->
+
+      <a mat-button [routerLink]="['/flights']">View Flights</a>
+
+      <a mat-button *ngIf="isAdmin"  [routerLink]="['/CreateFlight']" >Create Flight</a>
+
+      <a mat-button *ngIf="!isLoggedIn" [routerLink]="['/login']">Login</a>
+      <a mat-button *ngIf="isLoggedIn" [routerLink]="['/flights']" (click) = "logout()">Logout</a>
+
+    </mat-toolbar>
+</p>

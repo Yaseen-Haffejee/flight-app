@@ -1,0 +1,13 @@
+.toolbar{
+  display: flex;
+  justify-content: center;
+}
+
+.toolbar>a{
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+.Name{
+  margin-right: 1000px;
+}

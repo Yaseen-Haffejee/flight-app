@@ -1,0 +1,40 @@
+<mat-card class = "form-card" tabindex="0">
+
+  <div class = "form-content">
+    <img src="../../assets/Molo Air-1.png" width="250px" height="200px">
+
+  <mat-card-title class = "card-title">
+      Login
+  </mat-card-title>
+
+  <mat-card-content class = "form-content">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" type="text">
+        <mat-icon matSuffix >person_outline</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" type="password">
+        <mat-icon matSuffix >password</mat-icon>
+      </mat-form-field>
+
+      <a mat-button color="primary" style="padding-bottom: 10px;" (click) = "goToRegistration()">Don't have an account yet? Register Now</a>
+
+      <div>
+        <button  mat-fab extended color="primary" (click)="verifyUser()" >
+          Login
+        </button>
+
+      </div>
+
+
+  </mat-card-content>
+
+</div>
+
+
+
+</mat-card>

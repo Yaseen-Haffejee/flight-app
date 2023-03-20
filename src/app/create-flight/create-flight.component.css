@@ -1,0 +1,25 @@
+.form-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.card-title{
+  color:white;
+  font-size:xx-large;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.mat-hint{
+  color: white;
+}
+
+
+
+.mat-icon{
+  color: white;
+}

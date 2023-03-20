@@ -1,0 +1,68 @@
+<mat-card class = "form-card" tabindex="0">
+
+  <mat-card-title class = "card-title">
+      Create Flight
+  </mat-card-title>
+
+  <mat-card-content class = "form-card">
+      <mat-form-field appearance="fill">
+        <mat-label>Flight Number</mat-label>
+        <input matInput [(ngModel)]="flightNumber">
+        <mat-icon matSuffix >description</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Origin Location</mat-label>
+        <input matInput [(ngModel)]="origin">
+        <mat-icon matSuffix >flight_takeoff</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field  appearance="fill">
+        <mat-label>Destination Location</mat-label>
+        <input matInput [(ngModel)]="destination" required>
+        <mat-icon matSuffix >flight_land</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" >
+        <mat-label>Departure Date And Time</mat-label>
+        <mat-icon matSuffix>calendar_today</mat-icon>
+        <input matInput [(ngModel)]="departureDate" type="datetime-local" value="2018-06-12T19:30" required>
+      </mat-form-field>
+
+
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Arrival Date And Time</mat-label>
+        <mat-icon matSuffix>calendar_today</mat-icon>
+        <input matInput  [(ngModel)]="arrivalDate" type="datetime-local" value="2018-06-12T19:30">
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Available Seats</mat-label>
+        <input matInput [(ngModel)]="availableSeats" type="number">
+        <mat-icon matSuffix >airline_seat_recline_normal</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Seat Cost: ZAR</mat-label>
+        <input matInput [(ngModel)]="price" type="number">
+        <mat-icon matSuffix >payment</mat-icon>
+      </mat-form-field>
+
+      <div>
+        <button  mat-fab extended color="primary" (click) = "getDetails()">
+          Create Flight
+        </button>
+
+      </div>
+
+
+
+
+  </mat-card-content>
+
+
+</mat-card>

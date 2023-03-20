@@ -1,0 +1,68 @@
+<mat-card class = "form-card" tabindex="0">
+
+  <div class = "form-content">
+    <!-- <img src="../../assets/Molo Air-1.png" width="250px" height="200px" style="padding-top: 10px;"> -->
+
+  <mat-card-title class = "card-title">
+      Registration
+  </mat-card-title>
+
+  <mat-card-content class = "form-content">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" type="text">
+        <mat-icon matSuffix >person_outline</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="firstName" type="text">
+        <mat-icon matSuffix >person_outline</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="lastName" type="text">
+        <mat-icon matSuffix >person_outline</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Passport Number</mat-label>
+        <input matInput [(ngModel)]="passportNumber" type="text">
+        <mat-icon matSuffix >Passport</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput [(ngModel)]="email" type="email">
+        <mat-icon matSuffix >email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="phoneNumber" type="tel">
+        <mat-icon matSuffix >phone_iphone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" type="password">
+        <mat-icon matSuffix >password</mat-icon>
+      </mat-form-field>
+
+      <div>
+        <button  mat-fab extended color="primary" (click)="registerUser()" >
+          Register
+        </button>
+
+      </div>
+
+
+  </mat-card-content>
+
+</div>
+
+
+
+</mat-card>
