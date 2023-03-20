@@ -1,0 +1,16 @@
+.card{
+  height: 88%;
+
+}
+
+.items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+#processing{
+  color: white;
+  margin-bottom: 6%;
+}

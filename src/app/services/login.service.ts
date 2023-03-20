@@ -15,14 +15,23 @@ export class LoginService{
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private customerService:CustomerService, private snackbar:MatSnackBar){
+    if(this.customerService.customer != null){
+      this.verifyAdmin(this.customerService.customer.username,this.customerService.customer.password);
+    }
+  }
 
+  checkAdmin(username: string, password: string){
+    if(username === 'admin' && password === 'is_a_lie'){
+      this.isAdmin.next(true);
+      this.isLoggedIn.next(true);
+      return true;
+    }
+    return false;
   }
 
   async verifyAdmin(username: string, password: string):Promise<boolean>{
     let isSuccess:boolean = false;
-    if(username === 'admin' && password === 'is_a_lie'){
-      this.isAdmin.next(true);
-      this.isLoggedIn.next(true);
+    if(this.checkAdmin(username,password)){
       return true;
     }
     else{
@@ -51,6 +60,7 @@ export class LoginService{
   logOut(){
     this.isLoggedIn.next(false);
     this.isAdmin.next(false);
+    localStorage.clear();
   }
 
 }

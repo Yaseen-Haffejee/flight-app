@@ -1,6 +1,192 @@
-<mat-card>
+<mat-card class="card">
 
-    
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Verify Your Flight Details</ng-template>
+        <div class = "fields">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Flight Number</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.flightNumber}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Origin</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.origin}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Destination</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.destination}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Departure Date</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.departureTime|date:'medium'}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Arrival Date</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.arrivalTime|date:'medium'}}</textarea>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    readonly="true"
+                    *ngIf = "details!=null">{{this.details.seatCost|currency:'ZAR':'symbol-narrow'}}</textarea>
+        </mat-form-field>
+
+        <div>
+          <button mat-raised-button matStepperNext color="primary">Verify</button>
+        </div>
+
+      </div>
+
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Verify Your Personal Details">
+      <form [formGroup]="secondFormGroup">
+        <div class = "fields">
+
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      readonly="true"
+                      *ngIf = "customerDetails!=null">{{this.customerDetails.firstName}}</textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      readonly="true"
+                      *ngIf = "customerDetails!=null">{{this.customerDetails.lastName}}</textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Passport Number</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      readonly="true"
+                      *ngIf = "customerDetails!=null">{{this.customerDetails.passportNumber}}</textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      readonly="true"
+                      *ngIf = "customerDetails!=null">{{this.customerDetails.email}}</textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      readonly="true"
+                      *ngIf = "customerDetails!=null">{{this.customerDetails.phoneNumber}}</textarea>
+          </mat-form-field>
+
+
+          <div>
+            <button mat-raised-button matStepperPrevious color="primary" style = "margin-right: 20px;">Back</button>
+            <button mat-raised-button matStepperNext color="primary">Verify</button>
+          </div>
+
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Payment</ng-template>
+      <div class = "fields">
+
+        <img src="../../assets/payfast.png" style="margin-bottom: 10px;">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Name On Card</mat-label>
+          <textarea matInput required
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Card Number</mat-label>
+          <textarea matInput required
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Expiry Date</mat-label>
+          <textarea matInput required
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>CVV</mat-label>
+          <textarea matInput required
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+
+
+
+        <div>
+          <!-- <button mat-raised-button matStepperPrevious color="primary" style = "margin-right: 20px;">Back</button> -->
+          <button mat-raised-button matStepperNext color="primary"  *ngIf = "details!=null" (click) = "makePayment()">Pay {{this.details.seatCost| currency:'ZAR':'symbol-narrow'}}</button>
+        </div>
+
+      </div>
+    </mat-step>
+  </mat-stepper>
 
 
 </mat-card>

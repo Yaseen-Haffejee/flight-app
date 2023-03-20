@@ -7,6 +7,8 @@ import { flightSearchTypes } from '../enums/flightSearch';
 import { FlightSearch } from '../models/flight-search';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-table',
@@ -31,7 +33,9 @@ export class TableComponent implements OnInit {
   isLocation:boolean = false;
   isDate:boolean = false;
   isTime:boolean = false;
-  toggleFlag:boolean = false
+  toggleFlag:boolean = false;
+
+  details!:flightDetails;
 
   flightsArray: flightDetails[]= [];
   flightColumns = ['Flight-Number', 'Origin', 'Destination', 'Departure-Time','Arrival-Time','Available-Seats','Price']
@@ -42,7 +46,7 @@ export class TableComponent implements OnInit {
   departureDate!:string;
   arrivalDate!:string;
   daysToDeparture!:number;
-  constructor(private flightDetailsService:FlightService, private router:Router){}
+  constructor(private flightDetailsService:FlightService, private router:Router, private loginService:LoginService){}
 
   ngOnInit(): void {
       const flightsSubscription = this.flightDetailsService.getAllFlights().subscribe(
@@ -53,22 +57,16 @@ export class TableComponent implements OnInit {
 
   }
 
-
-  // openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-  //     width: '250px',
-  //     enterAnimationDuration,
-  //     exitAnimationDuration,
-  //   });
-  //   dialogRef.afterClosed().subscribe(
-  //     () => {
-
-  //     }
-  //   )
-  // }
-
   goToMakeBooking(row:any){
-    this.router.navigate(['/makeBooking'])
+    this.details = row;
+
+    if(this.loginService.isLoggedIn.value){
+      this.router.navigate(['/makeBooking',row.id]);
+    }
+    else{
+      this.router.navigate(['/login']);
+
+    }
   }
 
 

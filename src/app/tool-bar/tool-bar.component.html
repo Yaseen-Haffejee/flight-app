@@ -8,6 +8,7 @@
 
       <a mat-button *ngIf="isAdmin"  [routerLink]="['/CreateFlight']" >Create Flight</a>
 
+      <a mat-button *ngIf="isLoggedIn"  [routerLink]="['/customerFlights']" >My Bookings</a>
       <a mat-button *ngIf="!isLoggedIn" [routerLink]="['/login']">Login</a>
       <a mat-button *ngIf="isLoggedIn" [routerLink]="['/flights']" (click) = "logout()">Logout</a>
 

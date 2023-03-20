@@ -11,6 +11,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { LoginComponent } from './login/login.component'
 import { RegistrationComponent } from './registration/registration.component';
 import { MakeBookingComponent } from './make-booking/make-booking.component';
+import { PaymentComponent } from './payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -22,10 +23,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CustomerFlightsComponent } from './customer-flights/customer-flights.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     LoginComponent,
     RegistrationComponent,
     MakeBookingComponent,
+    PaymentComponent,
+    CustomerFlightsComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,13 +62,18 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
 
     RouterModule.forRoot([
       {path: "flights",component: TableComponent},
       {path: "CreateFlight",component: CreateFlightComponent},
       {path: "login",component: LoginComponent},
       {path: "registration",component: RegistrationComponent},
-      {path: "makeBooking",component: MakeBookingComponent},
+      {path: "makeBooking/:id",component: MakeBookingComponent},
+      {path: "payment",component: PaymentComponent},
+      {path: "customerFlights",component: CustomerFlightsComponent},
     ])
 
   ],

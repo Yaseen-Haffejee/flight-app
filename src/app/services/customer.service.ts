@@ -11,7 +11,15 @@ export class CustomerService {
 
   customer!:Customer;
   url = "http://localhost:8201/customers"
-  constructor(private  client:HttpClient) { }
+  constructor(private  client:HttpClient) {
+      try{
+        this.customer = JSON.parse(localStorage.getItem('customer')!);
+      }
+      catch(err){
+        console.error(err);
+      }
+
+  }
 
   createCustomer(details:Customer):  Observable<Customer>{
     var headers_object = new HttpHeaders();
@@ -38,6 +46,7 @@ export class CustomerService {
 
   updateDetails(details:Customer){
     this.customer = details;
+    localStorage.setItem("customer", JSON.stringify(this.customer));
   }
 
 }
