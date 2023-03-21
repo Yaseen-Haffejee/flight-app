@@ -1,1 +1,54 @@
-<p>customer-flights works!</p>
+
+<mat-card class = "card">
+
+<table mat-table [dataSource]="bookingsArray"  class="mat-elevation-z8 demo-table" >
+
+
+
+  <tr mat-header-row *matHeaderRowDef="bookingColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: bookingColumns;"></tr>
+
+  <ng-container matColumnDef="Booking-Date">
+    <th mat-header-cell *matHeaderCellDef> Booking Date </th>
+    <td mat-cell *matCellDef="let row"> {{row.bookingDate |date:'mediumDate'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Booking-Reference">
+    <th mat-header-cell *matHeaderCellDef>Booking Reference </th>
+    <td mat-cell *matCellDef="let row"> {{row.reference}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Flight-Number">
+    <th mat-header-cell *matHeaderCellDef> Flight Number </th>
+    <td mat-cell *matCellDef="let row"> {{row.flightDetails.flightNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Origin">
+    <th mat-header-cell *matHeaderCellDef> Origin </th>
+    <td mat-cell *matCellDef="let row"> {{row.flightDetails.origin}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Destination">
+    <th mat-header-cell *matHeaderCellDef> Destination </th>
+    <td mat-cell *matCellDef="let row"> {{row.flightDetails.destination}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Departure-Time">
+    <th mat-header-cell *matHeaderCellDef> Departure Time </th>
+    <td mat-cell *matCellDef="let row"> {{row.flightDetails.departureTime | date :'medium'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Arrival-Time">
+    <th mat-header-cell *matHeaderCellDef> Arrival Time </th>
+    <td mat-cell *matCellDef="let row"> {{row.flightDetails.arrivalTime | date :'medium'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let row">
+        {{row.flightDetails.seatCost | currency : 'ZAR':'symbol-narrow'}}
+    </td>
+  </ng-container>
+
+</table>
+</mat-card>
