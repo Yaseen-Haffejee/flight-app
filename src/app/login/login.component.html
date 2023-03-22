@@ -9,26 +9,29 @@
 
   <mat-card-content class = "form-content">
 
+    <form class="form-content" (ngSubmit)="verifyUser()" #loginForm="ngForm">
+
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput [(ngModel)]="username" type="text">
+        <input matInput [(ngModel)]="username" type="text" #usernameInput = "ngModel" name="username" required>
         <mat-icon matSuffix >person_outline</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="password" type="password">
+        <input matInput [(ngModel)]="password" type="password" #passwordInput = "ngModel" name="password" required>
         <mat-icon matSuffix >password</mat-icon>
       </mat-form-field>
 
       <a mat-button color="primary" style="padding-bottom: 10px;" (click) = "goToRegistration()">Don't have an account yet? Register Now</a>
 
       <div>
-        <button  mat-fab extended color="primary" (click)="verifyUser()" >
+        <button type="submit" mat-fab extended color="primary" [disabled]="loginForm.form.invalid" >
           Login
         </button>
 
       </div>
+    </form>
 
 
   </mat-card-content>

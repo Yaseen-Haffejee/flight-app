@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { flightDetails } from '../models/flight-details';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FlightService } from '../services/flight-service.service';
@@ -13,11 +13,24 @@ import { Customer } from '../models/customer';
 })
 export class MakeBookingComponent {
 
+  nameControl : FormControl = new FormControl('',Validators.required)
+  cardNumberControl : FormControl = new FormControl('',Validators.required)
+  dateControl : FormControl = new FormControl('',Validators.required)
+  cvvControl : FormControl = new FormControl('',Validators.required)
+
+
+  paymentFormGroup = this._formBuilder.group({
+    name: this.nameControl,
+    cardNumber: this.cardNumberControl,
+    date: this.dateControl,
+    cvv: this.cvvControl
+  });
+
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    firstCrl: new FormControl('',Validators.required)
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    firstCrl: new FormControl('',Validators.required)
   });
   isLinear = false;
 

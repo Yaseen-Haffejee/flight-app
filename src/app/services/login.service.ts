@@ -53,7 +53,6 @@ export class LoginService{
         isSuccess = false;
       }
     }
-    console.log(`Before return: ${isSuccess}`);
     return isSuccess;
   }
 

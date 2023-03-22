@@ -66,15 +66,6 @@ import { CustomerFlightsComponent } from './customer-flights/customer-flights.co
     ReactiveFormsModule,
     MatProgressSpinnerModule,
 
-    RouterModule.forRoot([
-      {path: "flights",component: TableComponent},
-      {path: "CreateFlight",component: CreateFlightComponent},
-      {path: "login",component: LoginComponent},
-      {path: "registration",component: RegistrationComponent},
-      {path: "makeBooking/:id",component: MakeBookingComponent},
-      {path: "payment",component: PaymentComponent},
-      {path: "customerFlights",component: CustomerFlightsComponent},
-    ])
 
   ],
   providers: [],
